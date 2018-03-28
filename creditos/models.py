@@ -17,3 +17,6 @@ class Banco(models.Model):
            return self.seguro
        def gas(self):
            return self.gastos
+class Calculator(models.Model):
+    monto = models.IntegerField()
+    meses = models.IntegerField()

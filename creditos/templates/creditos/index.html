@@ -1,31 +1,28 @@
 <html>
 {% for banco in banco %}
         <div>
-            <h3><a href="">{{ banco.nombre }}</a></h3>
-            <p>seguro: ${{ banco.seguro }}</p>
+            <h3>{{ banco.nombre }}</h3>
+            <p>seguro: ${{banco.seguro }}</p>
             <p>gatos: ${{ banco.gastos }}</p>
             <p>cae: {{banco.cae}}%</p>
 
         </div>
     {% endfor %}
+<form method="post">
+			{% csrf_token %}
 <p><span style="font-size:24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; simulador de creditos</span></p>
-
 <p>monto</p>
-
-<p><input name="monto" type="text" />ej. 3000000</p>
-
+<input name="monto" type="text" placeholder="ingrese monto ej 3000000" />
 <p>meses</p>
-
-<p><input name="meses" type="text" /> 2-48 meses</p>
-
+<input name="meses" type="text" placeholder="ingrese meses 2-48 meses"/>
 <p><input name="seguro desgravamen" type="checkbox" />seguro desgravamen</p>
-
-<p><input name="simular" type="button" value="simular" /></p>
+</form>		
+                <form method="get">
+		{{form.as_p}}
+		<input name="calcular "type="submit" value="calcular">
+</form>
 
 <p>&nbsp;</p>
-
-
-
 
 
 </html>
