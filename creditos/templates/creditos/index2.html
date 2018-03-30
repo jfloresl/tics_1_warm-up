@@ -1,0 +1,11 @@
+<html>
+{% for banco in banco %}
+        <div>
+            <h3>{{ banco.nombre }}</h3>
+            <p>seguro: ${{banco.seguro_1 }}</p>
+            <p>gatos: ${{ banco.gastos }}</p>
+            <p>cae: {{banco.cae}}%</p>
+
+        </div>
+    {% endfor %}
+</html>

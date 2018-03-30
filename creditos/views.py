@@ -1,16 +1,16 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from .forms import Regform
 from .models import *
+
 
 def post_list(request):
  banco=Banco.objects.filter().order_by('cae')
- return render(request, 'creditos/index.html', {'banco':banco})
-def calcular(request):
- form= formcalculator()
- if request.method == 'POST':
-   mo=int(request.POST['monto'])
-   me=int(request.POST['meses'])
-   v=mo*me
-   return HttpResponse(v)
- return render(request,'creditos/index.html', {'form':form} )
+ form=Regform(request.POST)
+ if form.is_valid():
+  form_dicc=form.cleaned_data
+  print (form_dicc.get('monto'))
+ return render(request, 'creditos/index.html',{"form":form})
 
+def listabancos(request):
+ banco=Banco.objects.filter().order_by('cae')
+ return render(request, 'creditos/index2.html',{'banco':banco})
