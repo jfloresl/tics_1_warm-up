@@ -1,11 +1,15 @@
 <html>
+
 {% for banco in banco %}
         <div>
             <h3>{{ banco.nombre }}</h3>
-            <p>seguro: ${{banco.seguro_1 }}</p>
+            <p>seguro: ${{banco.seg }}</p>
             <p>gatos: ${{ banco.gastos }}</p>
             <p>cae: {{banco.cae}}%</p>
 
         </div>
     {% endfor %}
+
+<a href="../" title="volver">Volver</a>
+{{any }}
 </html>

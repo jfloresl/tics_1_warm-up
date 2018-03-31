@@ -17,7 +17,9 @@ class Banco(models.Model):
        def name(self):
            return self.nombre
        def seg(self):
-           return self.seguro
+           return 666
+           #return self.seguro_1+self.gastos
        def gas(self):
            return self.gastos
-
+       def cuota(self):
+           return
