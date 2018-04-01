@@ -1,15 +1,22 @@
 <html>
-
+<table class="egt">
+  <tr>
+    <th>Banco</th>
+    <th>CAE</th>
+    <th>CTC</th>
+  </tr>
 {% for banco in banco %}
-        <div>
-            <h3>{{ banco.nombre }}</h3>
-            <p>seguro: ${{banco.seg }}</p>
-            <p>gatos: ${{ banco.gastos }}</p>
-            <p>cae: {{banco.cae}}%</p>
+  <tr>
+    <td>{{banco.nombre}}</td>
+    <td>{{banco.cae}}%</td>
+    <td> {{seg}}{{imp}}</td>
+  </tr>
 
-        </div>
-    {% endfor %}
+    {% endfor %}  
+</table>
+
+
 
 <a href="../" title="volver">Volver</a>
-{{any }}
+
 </html>
