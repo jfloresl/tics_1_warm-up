@@ -1,18 +1,25 @@
 <html>
+{{avedul}}
 <table class="egt">
   <tr>
     <th>Banco</th>
     <th>CAE</th>
     <th>CTC</th>
   </tr>
+
+
+
+
 {% for banco in banco %}
   <tr>
     <td>{{banco.nombre}}</td>
     <td>{{banco.cae}}%</td>
-    <td> {{seg}}{{imp}}</td>
-  </tr>
-
     {% endfor %}  
+{%for a in imp%}    
+<td>{{a}}</td>
+  </tr>
+{%endfor%}
+
 </table>
 
 

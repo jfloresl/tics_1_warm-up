@@ -14,6 +14,8 @@ class Banco(models.Model):
        nombre = models.CharField(max_length=200)
 
 
-       def segu(self):
+       def segu(a):
            return 666
-#self.seguro_1+self.gastos
+
+       def compra(meses,seg,gastos,imp,monto):
+           return (((monto*((1+(imp/100))**meses)*(imp/100)) / (((1+(imp/100))**meses)-1)) +(seg/meses)+(gastos/meses))*meses
