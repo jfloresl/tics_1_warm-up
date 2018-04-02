@@ -15,7 +15,6 @@ class Banco(models.Model):
        gastos =models.IntegerField()
        nombre = models.CharField(max_length=200)
 
-
        def ctc(meses,seg,gastos,imp,monto):
              #formula de valor de cuota * meses=ctc
            return (((monto*((1+(imp/100))**meses)*(imp/100)) / (((1+(imp/100))**meses)-1)) +(seg/meses)+(gastos/meses))*meses

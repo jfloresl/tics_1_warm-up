@@ -8,13 +8,22 @@
 			<td style="text-align: center;">CAE</td>
 			<td style="text-align: center;">CTC</td>
 		</tr>
-{% for banco in banco%}
+ {%for banco in banco%}
+
 		<tr>
 			<th scope="row">{{banco.nombre}}</th>
 			<td style="text-align: center;">{{banco.cae}}%</td>
-			<td style="text-align: center;">$ ctc</td>
-		</tr>
-	{% endfor %}
+{%for costo_total in costo_total%}
+      {% if forloop.counter == forloop.parentloop.counter %}
+			<td style="text-align: center;">${{costo_total}}</td>
+      {% endif %}
+
+{%endfor%}
+                </tr>
+
+
+{%endfor%}
+
 	</tbody>
 </table>
 
