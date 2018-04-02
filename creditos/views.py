@@ -52,7 +52,14 @@ def listabancos(request):
                 imp=-1
  #llamado a la funcion para calcular el ctc
  costo_total=[]
- for i in range(0,10):
-  costo_total.append(Banco.ctc(float(meses),float(seg[i]),float(gastos[i]),float(imp[i]),monto))
+ if seguro!='on':
+    for i in range(0,10):
+        costo_total.append(Banco.ctc_sin_s(float(meses),float(gastos[i]),float(imp[i]),monto))
+ else:
+    for i in range(0,10):
+        costo_total.append(Banco.ctc(float(meses),float(seg[i]),float(gastos[i]),float(imp[i]),monto))
+
+
+
  return render(request, 'creditos/index2.html',{'banco':banco,'costo_total':costo_total}) 
 
