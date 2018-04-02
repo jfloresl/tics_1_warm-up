@@ -1,27 +1,24 @@
 <html>
-{{avedul}}
-<table class="egt">
-  <tr>
-    <th>Banco</th>
-    <th>CAE</th>
-    <th>CTC</th>
-  </tr>
 
 
-
-
-{% for banco in banco %}
-  <tr>
-    <td>{{banco.nombre}}</td>
-    <td>{{banco.cae}}%</td>
-    {% endfor %}  
-{%for a in imp%}    
-<td>{{a}}</td>
-  </tr>
-{%endfor%}
-
+<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+	<tbody>
+		<tr>
+			<th scope="row">Banco</th>
+			<td style="text-align: center;">CAE</td>
+			<td style="text-align: center;">CTC</td>
+		</tr>
+{% for banco in banco%}
+		<tr>
+			<th scope="row">{{banco.nombre}}</th>
+			<td style="text-align: center;">{{banco.cae}}%</td>
+			<td style="text-align: center;">$ ctc</td>
+		</tr>
+	{% endfor %}
+	</tbody>
 </table>
 
+<p style="text-align: center;">&nbsp;</p>
 
 
 <a href="../" title="volver">Volver</a>
