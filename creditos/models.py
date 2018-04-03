@@ -17,8 +17,8 @@ class Banco(models.Model):
 
        def ctc(meses,seg,gastos,imp,monto):
              #formula de valor de cuota * meses=ctc
-           return (((monto*((1+(imp/100))**meses)*(imp/100)) / (((1+(imp/100))**meses)-1)) +(seg/meses)+(gastos/meses))*meses
+           return int((((monto*((1+(imp/100))**meses)*(imp/100)) / (((1+(imp/100))**meses)-1)) +(seg/meses)+(gastos/meses))*meses)
 
        def ctc_sin_s(meses,gastos,imp,monto):
              #formula de valor de cuota * meses=ctc
-           return (((monto*((1+(imp/100))**meses)*(imp/100)) / (((1+(imp/100))**meses)-1)) +(gastos/meses))*meses
+           return int((((monto*((1+(imp/100))**meses)*(imp/100)) / (((1+(imp/100))**meses)-1)) +(gastos/meses))*meses)

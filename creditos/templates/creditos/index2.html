@@ -1,17 +1,26 @@
+{% load staticfiles %}
 <html>
-
-
-<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+<head>
+<center>
+<title>SimuladorCAE</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/banco.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"
+</center>
+</head>
+ <body>
+<table id="table" border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
 	<tbody>
 		<tr>
 			<th scope="row">Banco</th>
-			<td style="text-align: center;">CAE</td>
-			<td style="text-align: center;">CTC</td>
+			<th style="text-align: center;">CAE</th>
+			<th style="text-align: center;">CTC</th>
 		</tr>
  {%for banco in banco%}
 
 		<tr>
-			<th scope="row">{{banco.nombre}}</th>
+			<td scope="row">{{banco.nombre}}</td>
 			<td style="text-align: center;">{{banco.cae}}%</td>
 {%for costo_total in costo_total%}
       {% if forloop.counter == forloop.parentloop.counter %}
@@ -26,10 +35,42 @@
 
 	</tbody>
 </table>
+    
+<span id="val"></span>
+        <script>
+        
+            var table = document.getElementById("table"),banco, minVal;
+            
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                // if its the first row get th value
+                if(i === 1){
+                    minVal = table.rows[i].cells[2].innerHTML;
+                    banco = table.rows[i].cells[0].innerHTML;
+                }
+              // test the values
+              else if(minVal > table.rows[i].cells[2].innerHTML)
+                {
+                    minVal = table.rows[i].cells[2].innerHTML;
+                    banco = table.rows[i].cells[0].innerHTML;
+                }
+            }
+            // display the max val
+            var val =document.getElementById("val");
+            console.log(val);
+            val.style.fontSize="20px";
+            val.innerHTML = "la mejor opcion es el "+banco+" donde debera pagar en total "+minVal;
 
-<p style="text-align: center;">&nbsp;</p>
+    
+        </script>
+
+
+
+
+
+
+</body>
 
 
 <a href="../" title="volver">Volver</a>
-
 </html>
